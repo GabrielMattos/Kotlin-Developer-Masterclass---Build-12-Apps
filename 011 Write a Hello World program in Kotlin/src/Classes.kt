@@ -12,13 +12,26 @@ class House(type:String, price:Double, yearBuilt:Int, owner:String)
         this.yearBuilt = yearBuilt
         this.owner = owner
     }
+
+    fun GetType():String?
+    {
+        return this.type
+    }
+
+    fun SetType(type: String)
+    {
+        this.type = type
+    }
 }
 
 fun main(args: Array<String>) {
 
 
     var myHouse = House("3 Bedroomhouse", 23000.0, 1978, "George")
+    myHouse.SetType("8 bedrromhouse")
     var secondHouse = House("6 Bedroomhouse", 36000.0, 2020, "Tyler")
+
+    println(myHouse.GetType())
 
     myHouse.owner = "Arthur"
 

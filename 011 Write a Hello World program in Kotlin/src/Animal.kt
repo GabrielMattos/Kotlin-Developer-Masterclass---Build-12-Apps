@@ -6,8 +6,8 @@ open class Animal()
     //protected == same as private = visible in subclasses
 
     var name:String? = null
-    protected var color:String? = null
-    private var numLegs:Int? = null
+     var color:String? = null
+     var numLegs:Int? = null
 
     constructor(name:String, color:String, numLegs:Int) : this()
     {
@@ -39,15 +39,6 @@ open class Animal()
         println("Name is: " + this.name)
         println("Name is: " + this.color)
         println("Name is: " + this.numLegs)
-    }
-
-
-    class Cat() : Animal
-    {
-        constructor(): super()
-        {
-            super.color = "Green"
-        }
     }
 }
 

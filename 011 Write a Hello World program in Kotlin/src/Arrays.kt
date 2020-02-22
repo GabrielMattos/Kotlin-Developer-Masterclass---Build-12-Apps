@@ -13,11 +13,13 @@ fun main(args: Array<String>) {
     myArray[3] = 40
     myArray[4] = 50
 
-
     for(element in myArray)
     {
-        println("Itens " + element)
+         //println("Itens " + element)
     }
 
-    println(myArray[1])
+    for (index in 0..myArray.size - 1)
+    {
+        println(myArray[index])
+    }
 }

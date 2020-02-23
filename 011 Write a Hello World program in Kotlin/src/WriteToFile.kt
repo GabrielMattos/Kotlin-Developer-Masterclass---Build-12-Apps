@@ -46,7 +46,6 @@ fun readFile()
         {
             char = reader.read()
             print(char.toChar())
-
         }
 
         while (char != -1)

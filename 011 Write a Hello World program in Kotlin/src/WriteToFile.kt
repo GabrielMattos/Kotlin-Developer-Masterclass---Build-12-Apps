@@ -1,9 +1,10 @@
+import java.io.FileReader
 import java.io.FileWriter
 import java.lang.Exception
 
 fun main(args: Array<String>) {
 
-    println("Enter a message")
+    /*println("Enter a message")
     var message = readLine().toString()
     if(message.equals(""))
     {
@@ -11,7 +12,9 @@ fun main(args: Array<String>) {
     } else
     {
         WriteToFile(message)
-    }
+    }*/
+
+    readFile()
 
 }
 
@@ -29,4 +32,28 @@ fun WriteToFile(message:String)
         println("Exception $ex")
     }
 
+}
+
+fun readFile()
+{
+    var reader = FileReader("message.txt")
+    var readMessage:String? = null
+    var char:Int?
+
+    try
+    {
+        do
+        {
+            char = reader.read()
+            print(char.toChar())
+
+        }
+
+        while (char != -1)
+    }
+
+    catch(ex:Exception)
+    {
+        println("Exception $ex")
+    }
 }

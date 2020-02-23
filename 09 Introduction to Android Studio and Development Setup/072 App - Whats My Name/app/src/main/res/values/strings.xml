@@ -3,4 +3,6 @@
     <string name="button_name">Show Name</string>
     <string name="title_name">Enter Your Name</string>
     <string name="hint_name">Enter Your Name</string>
+    <string name="new_hint">Enter your name new hint</string>
+    <string name="newest_item">Hello there again</string>
 </resources>

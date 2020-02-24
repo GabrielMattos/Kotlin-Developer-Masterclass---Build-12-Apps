@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">YourWeightOn</string>
+    <string name="weight_title">What\'s your weight on Mars?</string>
+    <string name="hint_height">Enter your weight</string>
+    <string name="show_weight">Show weight</string>
+</resources>

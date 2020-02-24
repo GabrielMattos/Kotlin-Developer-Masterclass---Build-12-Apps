@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_dog"
         android:layout_width="139dp"
         android:layout_height="139dp"
         android:layout_marginTop="100dp"
@@ -17,12 +17,12 @@
         app:srcCompat="@mipmap/icon_lg_dog" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView_cat"
         android:layout_width="139dp"
         android:layout_height="139dp"
         android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_dog"
         app:srcCompat="@mipmap/icon_lg_cat" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var weight = editText_enter_ID.text
+        //var weight = editText_enter_ID.text
 
         button_show_ID.setOnClickListener {
-            var result = calculateWeight(weight.toString().toDouble())
-            textView_result_ID.text = "You weight " + result.toString() + " on Mars"
+            //var result = calculateWeight(weight.toString().toDouble())
+            //textView_result_ID.text = "You weight " + result.toString() + " on Mars"
         }
 
         checkBox_mars.setOnClickListener(this) //registering our clicklistener
@@ -30,21 +30,31 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         checkBox_venus.setOnClickListener(this)
     }
 
-    private fun calculateWeight(userWeight:Double) : Double
+    private fun calculateWeight(userWeight:Double, checkbox:CheckBox)
     {
-        return userWeight * marsGravity
+        var result:Double?
+        when(checkbox.id)
+        {
+            R.id.checkBox_mars -> result = userWeight * marsGravity
+            R.id.checkBox_venus -> result = userWeight * venusGravity
+            R.id.checkBox_jupiter -> result = userWeight * jupiterGravity
+            else -> result = userWeight * marsGravity
+        }
+
+        textView_result_ID.text = "Weight is " + result
     }
 
     override fun onClick(v: View?) {
 
         v as CheckBox
         var isChecked:Boolean = v.isChecked
+        var weight = editText_enter_ID.text
 
         when(v.id)
         {
-            R.id.checkBox_mars -> if(isChecked){Log.d("Setup Mars", "Mars")}
-            R.id.checkBox_jupiter -> if(isChecked){Log.d("Setup Jupiter", "Jupiter")}
-            R.id.checkBox_venus -> if(isChecked){Log.d("Setup Venus", "Venus")}
+            R.id.checkBox_mars -> if(isChecked){calculateWeight(weight.toString().toDouble(), v)}
+            R.id.checkBox_jupiter -> if(isChecked){calculateWeight(weight.toString().toDouble(), v)}
+            R.id.checkBox_venus -> if(isChecked){calculateWeight(weight.toString().toDouble(), v)}
         }
     }
 }

@@ -3,4 +3,7 @@
     <string name="weight_title">What\'s your weight on Mars?</string>
     <string name="hint_height">Enter your weight</string>
     <string name="show_weight">Show weight</string>
+    <string name="mars">Mars</string>
+    <string name="venus">Venus</string>
+    <string name="jupiter">Jupiter</string>
 </resources>

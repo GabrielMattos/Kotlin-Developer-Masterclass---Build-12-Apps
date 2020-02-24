@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="32dp"
         android:text="@string/weight_title"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -20,14 +20,13 @@
 
     <EditText
         android:id="@+id/editText_enter_ID"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_width="315dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
         android:hint="@string/weight_title"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -54,4 +53,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_show_ID" />
+
+    <CheckBox
+        android:id="@+id/checkBox_mars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:text="@string/mars"
+        app:layout_constraintBottom_toTopOf="@+id/editText_enter_ID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <CheckBox
+        android:id="@+id/checkBox_venus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/venus"
+        app:layout_constraintBottom_toTopOf="@+id/editText_enter_ID"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox_jupiter"
+        app:layout_constraintStart_toEndOf="@+id/checkBox_mars"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <CheckBox
+        android:id="@+id/checkBox_jupiter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:text="@string/jupiter"
+        app:layout_constraintBottom_toTopOf="@+id/editText_enter_ID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

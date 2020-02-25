@@ -16,4 +16,8 @@ class MainActivity : AppCompatActivity() {
     {
          println("Sum is: ${firstNum + secondNum}")
     }
+
+    override fun onPause() {
+        super.onPause()
+    }
 }

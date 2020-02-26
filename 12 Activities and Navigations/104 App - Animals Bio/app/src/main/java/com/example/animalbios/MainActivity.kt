@@ -1,5 +1,6 @@
 package com.example.animalbios
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -24,10 +25,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when(v!!.id)
         {
             imageView_cheetah_ID.id -> {
-                Toast.makeText(this, "Cheetah", Toast.LENGTH_LONG).show()
+                var cheetahIntent = Intent(this, DetailsActivity::class.java)
+                cheetahIntent.putExtra("animal", "cheetah")
+                startActivity(cheetahIntent)
+                //Toast.makeText(this, "Cheetah", Toast.LENGTH_LONG).show()
             }
             imageView_lion_ID.id -> {
-                Toast.makeText(this, "Lion", Toast.LENGTH_LONG).show()
+                var lionIntent = Intent(this, DetailsActivity::class.java)
+                lionIntent.putExtra("animal", "lion")
+                startActivity(lionIntent)
+                //Toast.makeText(this, "Lion", Toast.LENGTH_LONG).show()
             }
         }
     }

@@ -2,4 +2,5 @@
     <string name="app_name">ShowNextActivity</string>
     <string name="first_button">Go to second Activity</string>
     <string name="second">Second Activity</string>
+    <string name="go_back">Go Back</string>
 </resources>

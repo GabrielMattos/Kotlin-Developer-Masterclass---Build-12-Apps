@@ -1,27 +1,40 @@
 package com.example.recycleviewapp.data
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recycleviewapp.R
 import com.example.recycleviewapp.model.Person
 
 class PersonListAdapter(private val list:ArrayList<Person>, private val context:Context) : RecyclerView.Adapter<PersonListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        //create our view from our xml file
+        val view = LayoutInflater.from(context).inflate(R.layout.list_row, parent, false)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return list.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        holder?.bindItem(list[position])
     }
 
     class ViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
+        fun bindItem(person:Person)
+        {
+            var name:TextView = itemView.findViewById(R.id.name) as TextView
+            var age:TextView = itemView.findViewById(R.id.age) as TextView
 
+            name.text = person.name
+            age.text = person.age.toString()
+        }
     }
 
 }

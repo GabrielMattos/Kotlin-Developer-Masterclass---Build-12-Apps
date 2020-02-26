@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recycleviewapp.R
 import com.example.recycleviewapp.model.Person
@@ -14,7 +15,7 @@ class PersonListAdapter(private val list:ArrayList<Person>, private val context:
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         //create our view from our xml file
         val view = LayoutInflater.from(context).inflate(R.layout.list_row, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, context)
     }
 
     override fun getItemCount(): Int {
@@ -26,7 +27,7 @@ class PersonListAdapter(private val list:ArrayList<Person>, private val context:
         holder?.bindItem(list[position])
     }
 
-    class ViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView:View, context:Context) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(person:Person)
         {
             var name:TextView = itemView.findViewById(R.id.name) as TextView
@@ -34,6 +35,11 @@ class PersonListAdapter(private val list:ArrayList<Person>, private val context:
 
             name.text = person.name
             age.text = person.age.toString()
+
+            itemView.setOnClickListener {
+                //context.startActivity(this, SecondActivity::java.class)
+                Toast.makeText(context, name.text, Toast.LENGTH_LONG).show()
+            }
         }
     }
 

@@ -15,9 +15,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var firebaseDatabas = FirebaseDatabase.getInstance()
-        var databaseRef = firebaseDatabas.getReference("messages")
+        var databaseRef = firebaseDatabas.getReference("messages").push()
 
-        databaseRef.setValue("Hello there!")
+        var employee = Employee("James", "Android Developer", "123 Street", 25)
+
+        databaseRef.setValue(employee)
 
         //Read from our DB
         databaseRef.addValueEventListener(object:ValueEventListener {
@@ -28,9 +30,14 @@ class MainActivity : AppCompatActivity() {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
-                var value = dataSnapshot!!.value
-                Log.d("VALUE: ", value.toString())
+                var value = dataSnapshot!!.value as HashMap<String, Any>
+                Log.d("VALUE: ", value.get("name").toString())
             }
         })
+    }
+
+    data class Employee(var name:String, var position:String, var homeAdress:String, var age:Int)
+    {
+
     }
 }

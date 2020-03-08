@@ -12,6 +12,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +27,28 @@ class MainActivity : AppCompatActivity() {
         var databaseRef = firebaseDatabas.getReference("messages").push()
 
         mAuth = FirebaseAuth.getInstance()
+
+        //Create new User
+
+        button_createAccount_ID.setOnClickListener {
+
+            var email = editText_email_ID.text.toString().trim()
+            var password = editText_password_ID.text.toString().trim()
+
+            mAuth!!.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
+                task: Task<AuthResult> ->
+                if(task.isSuccessful)
+                {
+                    var user:FirebaseUser = mAuth!!.currentUser!!
+                    Log.d("USER: ", user.email.toString())
+                }
+                
+                else
+                {
+                    Log.d("error: ", task.exception.toString())
+                }
+            }
+        }
 
         //Sign existing user in
         mAuth!!.signInWithEmailAndPassword("paulo@me.com", "password").addOnCompleteListener {
@@ -78,7 +101,6 @@ class MainActivity : AppCompatActivity() {
         }
         //call a function to update the userInterface with current user
     }
-
 
     data class Employee(var name:String, var position:String, var homeAdress:String, var age:Int)
     {

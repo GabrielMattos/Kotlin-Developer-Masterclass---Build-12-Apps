@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">IntroToKotlinFirebase</string>
+    <string name="email">Enter Email</string>
+    <string name="password">Password</string>
+    <string name="create_acount">Create Account</string>
 </resources>

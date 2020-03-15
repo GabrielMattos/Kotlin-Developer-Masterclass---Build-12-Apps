@@ -1,5 +1,6 @@
 package com.example.mychatapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -60,11 +61,15 @@ class CreateAccountActivity : AppCompatActivity() {
                     task: Task<Void> ->
                     if(task.isSuccessful)
                     {
-                        Toast.makeText(this, "User created! 302010", Toast.LENGTH_LONG).show()
+                        var dashBoardIntent = Intent(this, DashboardActivity::class.java)
+                        dashBoardIntent.putExtra("name", displayName)
+                        startActivity(dashBoardIntent)
+                        Toast.makeText(this, "User created!", Toast.LENGTH_LONG).show()
+                        finish()
                     }
                     else
                     {
-                        Toast.makeText(this, "User NOT created! 102030", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "User NOT created!", Toast.LENGTH_LONG).show()
                     }
                 }
             }

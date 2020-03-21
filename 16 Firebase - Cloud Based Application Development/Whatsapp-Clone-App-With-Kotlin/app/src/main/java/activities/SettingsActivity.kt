@@ -15,6 +15,7 @@ class SettingsActivity : AppCompatActivity() {
     var mDatabase:DatabaseReference? = null
     var mCurrentUser:FirebaseUser? = null
     var mStorageRef:StorageReference? = null
+    var GALLERY_ID:Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,5 +47,16 @@ class SettingsActivity : AppCompatActivity() {
             intent.putExtra("status", textView_status_ID.text.toString().trim())
             startActivity(intent)
         }
+
+        button_changeImage_ID.setOnClickListener {
+            var galleryIntent = Intent()
+            galleryIntent.type = "image/*"
+            galleryIntent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(Intent.createChooser(galleryIntent, "SELECT_IMAGE"), GALLERY_ID)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }

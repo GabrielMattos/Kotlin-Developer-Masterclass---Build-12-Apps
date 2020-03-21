@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_settings.*
 import kotlinx.android.synthetic.main.activity_status.*
 
 class StatusActivity : AppCompatActivity() {
@@ -34,7 +35,7 @@ class StatusActivity : AppCompatActivity() {
             editText_statusUpdate_ID.setText("Enter Your New Status")
         }
 
-        editText_statusUpdate_ID.setOnClickListener {
+        button_statusUpdate_ID.setOnClickListener {
 
             mCurrentUser = FirebaseAuth.getInstance().currentUser
             var userId = mCurrentUser!!.uid

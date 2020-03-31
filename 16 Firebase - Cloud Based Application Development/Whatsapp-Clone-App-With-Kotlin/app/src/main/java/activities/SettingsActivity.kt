@@ -42,10 +42,8 @@ class SettingsActivity : AppCompatActivity() {
             .child("Users")
             .child(userId)
 
-        mDatabase!!.addValueEventListener(object : ValueEventListener
-        {
-            override fun onDataChange(dataSnapshot: DataSnapshot)
-            {
+        mDatabase!!.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
                 var displayName = dataSnapshot!!.child("display_name").value
                 var image = dataSnapshot!!.child("image").value.toString()
                 var userStatus = dataSnapshot!!.child("status").value
@@ -54,8 +52,7 @@ class SettingsActivity : AppCompatActivity() {
                 textView_displayName_ID.text = displayName.toString()
                 textView_status_ID.text = userStatus.toString()
 
-                if (!image!!.equals("default"))
-                {
+                if (!image!!.equals("default")) {
                     Picasso.get()
                         .load(image)
                         .placeholder(R.drawable.profile_img)
@@ -63,8 +60,7 @@ class SettingsActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onCancelled(p0: DatabaseError)
-            {
+            override fun onCancelled(p0: DatabaseError) {
 
             }
 
@@ -85,10 +81,8 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?)
-    {
-        if (requestCode == GALLERY_ID && resultCode == Activity.RESULT_OK)
-        {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == GALLERY_ID && resultCode == Activity.RESULT_OK) {
             var image: Uri? = data!!.data
 
             CropImage.activity(image)
@@ -96,15 +90,13 @@ class SettingsActivity : AppCompatActivity() {
                 .start(this)
         }
 
-        if (requestCode === CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE)
-        {
+        if (requestCode === CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             val result = CropImage.getActivityResult(data)
 
-            if (resultCode === Activity.RESULT_OK)
-            {
+            if (resultCode === Activity.RESULT_OK) {
 
                 val resultUri = result.uri
-                var userId:String = mCurrentUser!!.uid
+                var userId: String = mCurrentUser!!.uid
                 var thumbFile = File(resultUri.path)
 
                 var thumbBitmap = Compressor(this)
@@ -130,8 +122,7 @@ class SettingsActivity : AppCompatActivity() {
 
                 filePath.putFile(resultUri)
                     .addOnCompleteListener { task: Task<UploadTask.TaskSnapshot> ->
-                        if (task.isSuccessful)
-                        {
+                        if (task.isSuccessful) {
                             //Let's get the pic url
                             val downloadUrl = task.result.toString()
 
@@ -142,8 +133,7 @@ class SettingsActivity : AppCompatActivity() {
                             uploadTask.addOnCompleteListener { task: Task<UploadTask.TaskSnapshot> ->
                                 val thumbUrl = task.result.toString()
 
-                                if (task.isSuccessful)
-                                {
+                                if (task.isSuccessful) {
                                     var updateObj = HashMap<String, Any>()
                                     updateObj.put("image", downloadUrl)
                                     updateObj.put("thumb_image", thumbUrl)
@@ -151,30 +141,23 @@ class SettingsActivity : AppCompatActivity() {
                                     //We save the profile image
                                     mDatabase!!.updateChildren(updateObj)
                                         .addOnCompleteListener { task: Task<Void> ->
-                                            if (task.isSuccessful)
-                                            {
-                                                Toast.makeText(this, "Profile Image Saved!", Toast.LENGTH_LONG).show()
-                                            }
-
-                                            else
-                                            {
+                                            if (task.isSuccessful) {
+                                                Toast.makeText(
+                                                    this,
+                                                    "Profile Image Saved!",
+                                                    Toast.LENGTH_LONG
+                                                ).show()
+                                            } else {
 
                                             }
                                         }
-
-                                }
-
-                                else
-                                {
+                                } else {
 
                                 }
                             }
                         }
                     }
-            }
-
-            else if (resultCode === CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE)
-            {
+            } else if (resultCode === CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 val error = result.error
                 Log.d("Error", error.toString())
             }

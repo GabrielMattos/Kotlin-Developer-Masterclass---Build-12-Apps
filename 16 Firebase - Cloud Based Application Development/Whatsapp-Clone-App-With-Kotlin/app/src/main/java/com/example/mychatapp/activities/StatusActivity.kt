@@ -1,4 +1,4 @@
-package activities
+package com.example.mychatapp.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +10,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_settings.*
 import kotlinx.android.synthetic.main.activity_status.*
 
 class StatusActivity : AppCompatActivity() {

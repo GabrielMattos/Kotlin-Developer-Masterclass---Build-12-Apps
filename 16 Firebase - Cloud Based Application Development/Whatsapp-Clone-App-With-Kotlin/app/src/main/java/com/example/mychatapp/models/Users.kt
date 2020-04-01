@@ -1,4 +1,4 @@
-package models
+package com.example.mychatapp.models
 
 class Users()
 {

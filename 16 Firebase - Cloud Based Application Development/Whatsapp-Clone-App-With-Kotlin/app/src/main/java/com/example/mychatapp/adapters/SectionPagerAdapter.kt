@@ -1,10 +1,10 @@
-package adapters
+package com.example.mychatapp.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import fragments.ChatsFragment
-import fragments.UsersFragment
+import com.example.mychatapp.fragments.ChatsFragment
+import com.example.mychatapp.fragments.UsersFragment
 
 class SectionPagerAdapter(fragmentManager:FragmentManager) : FragmentPagerAdapter(fragmentManager) {
     override fun getItem(position: Int): Fragment {

@@ -1,6 +1,6 @@
-package activities
+package com.example.mychatapp.activities
 
-import adapters.SectionPagerAdapter
+import com.example.mychatapp.adapters.SectionPagerAdapter
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity

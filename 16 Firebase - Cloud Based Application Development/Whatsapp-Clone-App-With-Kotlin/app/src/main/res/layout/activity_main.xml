@@ -1,62 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    tools:context=".activities.MainActivity">
+    tools:context="mychatapp.gohool.com.mychatapp.activities.MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="164dp"
+        android:layout_height="155dp"
+        app:srcCompat="@drawable/chat_icon"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032"
-        app:srcCompat="@drawable/chat_icon" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp" />
 
     <TextView
         android:id="@+id/textView"
-        style="bold"
-        android:layout_width="213dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="@string/welcome_text"
+        android:layout_width="239dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="40dp"
+        android:textAlignment="center"
         android:textAllCaps="true"
         android:textSize="18sp"
+        android:text="@string/welcome_text"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/button_createAccount_ID"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/loginButton"
+        android:layout_width="259dp"
+        android:layout_height="46dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/bg_input_cursor"
-        android:text="@string/need_account"
-        android:textColor="@color/grey_100"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_loginAccount_ID" />
+        android:background="@color/colorAccent"
+        android:text="@string/have_account"
+        android:textColor="@color/grey_100"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button_loginAccount_ID"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/bg_input_cursor"
-        android:text="@string/have_account"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/createActButon"
+        android:layout_width="258dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
         android:textStyle="bold"
+        android:background="@color/colorAccent"
         android:textColor="@color/grey_100"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="@string/need_account"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+</android.support.constraint.ConstraintLayout>

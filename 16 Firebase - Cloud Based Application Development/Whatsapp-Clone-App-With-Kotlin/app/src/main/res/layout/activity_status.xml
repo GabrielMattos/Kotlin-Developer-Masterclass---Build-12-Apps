@@ -1,80 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    tools:context=".activities.StatusActivity">
+    tools:context="mychatapp.gohool.com.mychatapp.activities.StatusActivity">
 
-    <androidx.cardview.widget.CardView
+
+    <android.support.v7.widget.CardView
         android:layout_width="368dp"
         android:layout_height="300dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:cardCornerRadius="12dp"
         android:layout_marginTop="15dp"
-        app:cardUseCompatPadding="true">
+        android:layout_marginStart="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:background="@color/colorAccent"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+
+            <LinearLayout
                 android:layout_marginTop="10dp"
-                android:orientation="vertical"
+                android:paddingEnd="30dp"
                 android:paddingStart="50dp"
-                android:paddingEnd="30dp">
-                
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
                     android:text="Enter Your Status"
                     android:layout_marginStart="50dp"
                     android:layout_marginEnd="50dp"
                     android:textColor="#fff"
                     android:textStyle="bold"
-                    android:textSize="19dp"/>
+                    android:textSize="19sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:layout_width="300dp"
-                    android:layout_height="44dp"
-                    android:id="@+id/editText_statusUpdate_ID"
+                <EditText
+                    android:id="@+id/statusUpdateEt"
                     android:ems="10"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/selector_bg_edit_2"
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:hint="Status..."
-                    android:inputType="textPersonName"
                     android:textColor="#f0f7f4"
-                    android:textCursorDrawable="@drawable/bg_input_cursor_2"/>
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    android:textCursorDrawable="@drawable/bg_input_cursor_2"
+                    android:inputType="textPersonName"
+                    android:layout_width="300dp"
+                    android:layout_height="44dp"
+                    />
+
+            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="160dp"
-                    android:layout_height="45dp"
-                    android:id="@+id/button_statusUpdate_ID"
+                <Button
+                    android:id="@+id/statusUpdateBtn"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
-                    android:textColor="#d3d3d3"
                     android:text="Update Status"
+                    android:textColor="#d3d3d3"
                     android:background="@drawable/bt_shape"
-                    android:stateListAnimator="@drawable/state_list_animator_z"/>
+                    android:stateListAnimator="@drawable/state_list_animator_z"
+                    android:layout_width="160dp"
+                    android:layout_height="45dp" />
 
             </RelativeLayout>
 
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>

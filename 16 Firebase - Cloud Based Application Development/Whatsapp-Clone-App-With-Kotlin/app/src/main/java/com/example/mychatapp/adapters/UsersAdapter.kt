@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mychatapp.R
 import com.firebase.ui.database.FirebaseRecyclerAdapter
@@ -32,13 +33,17 @@ class UsersAdapter(databaseQuery:DatabaseReference, var context:Context) : Fireb
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersAdapter.ViewHolder
+    override fun onCreateViewHolder(parent: ViewGroup, position: Int): UsersAdapter.ViewHolder
     {
-        TODO("Not yet implemented")
+
     }
 
-    override fun onBindViewHolder(viewHolder: UsersAdapter.ViewHolder, position: Int, model: Users)
+    override fun onBindViewHolder(viewHolder: UsersAdapter.ViewHolder, user: Users?, position: Int)
     {
-        TODO("Not yet implemented")
+        var userId = getRef(position).key
+        viewHolder!!.bindView(user!!, context)
+        viewHolder.itemView.setOnClickListener {
+            Toast.makeText(context, "User rwo click $userId", Toast.LENGTH_LONG).show()
+        }
     }
 }

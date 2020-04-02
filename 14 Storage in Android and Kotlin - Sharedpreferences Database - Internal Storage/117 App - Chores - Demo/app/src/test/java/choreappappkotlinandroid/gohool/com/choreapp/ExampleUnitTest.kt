@@ -1,4 +1,4 @@
-package com.example.choreapp
+package choreappappkotlinandroid.gohool.com.choreapp
 
 import org.junit.Test
 
